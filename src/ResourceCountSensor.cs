@@ -461,8 +461,10 @@ namespace ResourceSensor
             get
             {
                 string name = HasTag() ? filterable.SelectedTag.ProperName() : (string)STRINGS.THRESHOLD.AMOUNT;
-                // The name on a line of its own above the game's "— currently:" (see ThresholdReadingFit)
-                SensorStrings.SetThresholdName(name + "\n");
+                // The name on a line of its own above the game's "— currently:" (see ThresholdReadingFit).
+                // Only where the game's wording starts with the name: in English it is
+                // "Current {0}:", and a line break there would leave a lone ":" on its own line.
+                SensorStrings.SetThresholdName(SensorStrings.NameFirstInReading() ? name + "\n" : name);
                 return SensorStrings.THRESHOLD_NAME;
             }
         }
@@ -537,6 +539,21 @@ namespace ResourceSensor
         public static string Red()
         {
             return global::STRINGS.UI.FormatAsAutomationState(STRINGS.SENSOR.RED_SIGNAL, global::STRINGS.UI.AutomationState.Standby);
+        }
+
+        /// <summary>
+        /// True when the game's threshold reading starts with the value name
+        /// (Russian: "{0} — в данный момент:"), so the name can sit on a line of its own.
+        /// False for wordings like the English "Current {0}:".
+        /// </summary>
+        public static bool NameFirstInReading()
+        {
+            try
+            {
+                string reading = Strings.Get("STRINGS.UI.UISIDESCREENS.THRESHOLD_SWITCH_SIDESCREEN.CURRENT_VALUE").String;
+                return reading != null && reading.TrimStart().StartsWith("{0}");
+            }
+            catch { return false; }
         }
 
         public static void SetThresholdName(string name)

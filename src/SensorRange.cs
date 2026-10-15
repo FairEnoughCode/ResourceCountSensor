@@ -264,7 +264,7 @@ namespace ResourceSensor
         public static void Postfix(ThresholdSwitchSideScreen __instance, GameObject __0)
         {
             ResourceCountSensor sensor = __0 != null ? __0.GetComponent<ResourceCountSensor>() : null;
-            ThresholdReadingFit.Apply(__instance, sensor != null);
+            ThresholdReadingFit.Apply(__instance, sensor != null && SensorStrings.NameFirstInReading());
             ThresholdReadingFit.SetRangeSpace(sensor != null, sensor != null && sensor.countMode == ResourceCountSensor.MODE_RANGE);
         }
     }

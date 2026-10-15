@@ -46,16 +46,11 @@ English and Russian.
 
 Please make sure you have the latest version. Steam sometimes doesn't update mods; [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2018291283]Mod Updater[/url] fixes this.
 
-Then leave a comment and attach:
+Then leave a comment with:
 [list]
-[*][b]Player.log[/b] — the game's log file. Send it right after the problem, before starting the game again: each launch overwrites it.
-[list]
-[*]Windows: [code]%USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\Player.log[/code]
-[*]macOS: [code]~/Library/Logs/Klei/Oxygen Not Included/Player.log[/code]
-[*]Linux: [code]~/.config/unity3d/Klei/Oxygen Not Included/Player.log[/code]
-[/list]
-Upload it to a file-sharing site (for example, Pastebin or Google Drive) and paste the link.
-[*][b]Your mod list[/b] — a screenshot of the Mods screen is enough.
+[*][b]Player.log[/b], uploaded to Pastebin or Google Drive. Grab it right after the problem: each game launch overwrites it.
+Windows: [i]%USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\Player.log[/i]
+[*][b]Your mod list:[/b] a screenshot of the Mods screen is enough.
 [*]What you did and what happened.
 [/list]
 
