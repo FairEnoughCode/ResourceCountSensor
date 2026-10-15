@@ -1,0 +1,70 @@
+[h1]Resource Count Sensor[/h1]
+
+A logic sensor that counts how much of the chosen resource you have, liquids and gases included, and sends a [b]green[/b] or [b]red[/b] signal depending on a threshold. Count across the whole map, within range of the sensor, or in the room it stands in.
+
+[h2]What it does[/h2]
+
+The sensor is a 1×1 building in the [b]Automation[/b] category. It unlocks together with the basic sensors.
+
+[list]
+[*][b]Where to count[/b]
+[list]
+[*][b]On Map:[/b] the whole asteroid, the same number as in the resources panel on the right.
+[*][b]Range:[/b] a square of 1–10 tiles in every direction around the sensor. The area is highlighted while the sensor is selected.
+[*][b]Room:[/b] the enclosed area the sensor stands in, up to 256 tiles. Also highlighted.
+[/list]
+[*][b]What to count:[/b] Materials, Liquids or Gases. This picks which resources the list shows.
+[*][b]Which resource:[/b] pick it in the list that opens to the left of the panel.
+[*][b]Threshold:[/b] in kg (shown in tonnes from 5,000 kg), with an [b]Above / Below[/b] switch. By default the sensor sends a green signal while there is less of the resource than the threshold.
+[/list]
+
+The building status shows the resource and its amount, the count mode and the sensor's signal.
+
+[h2]Good to know[/h2]
+
+[list]
+[*][b]Items, storage and tiles.[/b] In Range and Room modes the sensor counts loose items on the floor, items in storage (including storage tiles), bottles and canisters. It also counts liquids and gases right in the tiles.
+[*][b]On Map counts materials only.[/b] Across the whole map the game tracks liquids and gases only in bottles and storage, not in tiles. With a liquid or gas chosen, On Map shows "no data" and keeps the signal red, so a factory never switches on by a false zero.
+[*][b]Rooms over 256 tiles[/b] give no data.
+[*][b]No resource chosen:[/b] the signal is red.
+[*][b]Copy Settings[/b] works between sensors.
+[/list]
+
+[h2]Compatibility[/h2]
+
+[list]
+[*]Works in the base game and with Spaced Out!, The Frosty Planet Pack, The Bionic Booster Pack, The Prehistoric Planet Pack and The Aquatic Planet Pack.
+[*]Does not conflict with the old [i]Resource Sensor[/i] mod by Rubacava: they are different buildings.
+[*]Built to survive game updates: the mod uses the game's own panels. If an update breaks one of its patches, only that patch is skipped and the rest of the mod keeps working.
+[/list]
+
+[h2]Languages[/h2]
+
+English and Russian.
+
+[h2]Found a bug?[/h2]
+
+Please make sure you have the latest version. Steam sometimes doesn't update mods; [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2018291283]Mod Updater[/url] fixes this.
+
+Then leave a comment and attach:
+[list]
+[*][b]Player.log[/b] — the game's log file. Send it right after the problem, before starting the game again: each launch overwrites it.
+[list]
+[*]Windows: [code]%USERPROFILE%\AppData\LocalLow\Klei\Oxygen Not Included\Player.log[/code]
+[*]macOS: [code]~/Library/Logs/Klei/Oxygen Not Included/Player.log[/code]
+[*]Linux: [code]~/.config/unity3d/Klei/Oxygen Not Included/Player.log[/code]
+[/list]
+Upload it to a file-sharing site (for example, Pastebin or Google Drive) and paste the link.
+[*][b]Your mod list[/b] — a screenshot of the Mods screen is enough.
+[*]What you did and what happened.
+[/list]
+
+[h2]Credits[/h2]
+
+Inspired by [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2911545239]Resource Sensor[/url] by Rubacava. The code and the look are written from scratch.
+
+This mod was made with the help of AI.
+
+[h2]Source code[/h2]
+
+[url=https://github.com/FairEnoughCode/ResourceCountSensor]GitHub[/url] (MIT license)

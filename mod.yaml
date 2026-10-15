@@ -1,0 +1,3 @@
+title: "Resource Count Sensor"
+description: "Logic sensor that counts the selected resource (materials, liquids or gases) on the map, within range or in a room and sends a green or red signal by a threshold."
+staticID: FairEnough.ResourceCountSensor

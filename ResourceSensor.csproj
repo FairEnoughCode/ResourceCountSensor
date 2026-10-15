@@ -1,0 +1,89 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Build description for the mod. Build with "dotnet build" (or Ctrl+Shift+B in VS Code);
+    the finished mod is copied into the game's mods folder automatically.
+
+    The path to the game lives in GamePath.props. It is not stored in git, because every
+    computer has the game in its own place. One shared file in the folder that holds all
+    the mod repositories serves every mod; a GamePath.props inside this repository, if
+    present, takes priority.
+  -->
+  <Import Project="..\GamePath.props" Condition="Exists('..\GamePath.props')" />
+  <Import Project="GamePath.props" Condition="Exists('GamePath.props')" />
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <!-- Not "ResourceSensor": an old Workshop mod (Rubacava) ships a ResourceSensor.dll too, and the game
+         loads only one assembly per name, so ours would silently never run next to it. -->
+    <AssemblyName>ResourceCountSensor</AssemblyName>
+    <RootNamespace>ResourceSensor</RootNamespace>
+
+    <!-- Compile against the game's own system libraries (mscorlib etc. from its Managed folder),
+         exactly like the game will run the mod. No .NET targeting pack is needed. -->
+    <NoStdLib>true</NoStdLib>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <AutomaticallyUseReferenceAssemblyPackages>false</AutomaticallyUseReferenceAssemblyPackages>
+
+    <!-- Only the .dll is needed; the game cannot use debug symbols anyway -->
+    <DebugType>none</DebugType>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!-- 0649: fields filled in by the game or by Harmony, not by our code -->
+    <NoWarn>$(NoWarn);1701;1702;0649</NoWarn>
+
+    <GameManaged>$(GameDir)\OxygenNotIncluded_Data\Managed</GameManaged>
+    <!-- Treat the game's Managed folder as "the framework", so MSBuild does not look for
+         the .NET Framework 4.8 developer pack (it may not be installed, and the game doesn't use it). -->
+    <_TargetFrameworkDirectories>$(GameManaged)</_TargetFrameworkDirectories>
+    <_FullFrameworkReferenceAssemblyPaths>$(GameManaged)</_FullFrameworkReferenceAssemblyPaths>
+    <!-- Where the finished mod is copied (the game's local mods folder) -->
+    <ModDir Condition="'$(ModDir)' == ''">$([System.Environment]::GetFolderPath(SpecialFolder.Personal))\Klei\OxygenNotIncluded\mods\Local\ResourceSensor</ModDir>
+  </PropertyGroup>
+
+  <!-- Game libraries the mod uses. Private=false: they are only referenced, never copied into the mod. -->
+  <ItemGroup>
+    <GameLib Include="mscorlib;System;System.Core;netstandard" />
+    <GameLib Include="Assembly-CSharp;Assembly-CSharp-firstpass;0Harmony" />
+    <Reference Include="@(GameLib)">
+      <HintPath>$(GameManaged)\%(Identity).dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- All Unity libraries, so no "missing assembly reference" errors whichever part of Unity the code touches -->
+    <Reference Include="$(GameManaged)\UnityEngine*.dll;$(GameManaged)\Unity.*.dll" Condition="'$(GameDir)' != ''">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Files that go into the mod folder next to the .dll -->
+  <ItemGroup>
+    <ModFile Include="mod.yaml;mod_info.yaml" />
+    <ModTranslation Include="translations\*.po" />
+    <None Remove="@(ModFile);@(ModTranslation)" />
+    <None Include="@(ModFile);@(ModTranslation);README.md;README.ru.md;LICENSE" />
+  </ItemGroup>
+
+  <!-- Stop early with a clear message if the game is not found -->
+  <Target Name="CheckGamePath" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="'$(GameDir)' == ''"
+           Text="Game path not set: GamePath.props was not found next to the mod folder. README.md explains how to create it." />
+    <Error Condition="'$(GameDir)' != '' And !Exists('$(GameManaged)\Assembly-CSharp.dll')"
+           Text="The game was not found in $(GameDir). Fix the path in GamePath.props." />
+  </Target>
+
+  <!-- After every successful build, install the mod into the game's mods folder -->
+  <Target Name="InstallMod" AfterTargets="Build">
+    <!-- The running game locks the mod's .dll, so ask to close it instead of failing on copy (Windows only) -->
+    <Exec Condition="'$(OS)' == 'Windows_NT'" IgnoreExitCode="true" StandardOutputImportance="low"
+          Command="tasklist /NH /FI &quot;IMAGENAME eq OxygenNotIncluded.exe&quot; | findstr /I &quot;OxygenNotIncluded.exe&quot;">
+      <Output TaskParameter="ExitCode" PropertyName="_GameRunningCheck" />
+    </Exec>
+    <Error Condition="'$(_GameRunningCheck)' == '0'"
+           Text="The game is running, and the mod cannot be updated while it is open. Close the game and build again." />
+    <Copy SourceFiles="$(TargetPath);@(ModFile)" DestinationFolder="$(ModDir)" Retries="2" RetryDelayMilliseconds="1000" />
+    <!-- Translations go to a subfolder, never to the mod root (a .po in the root makes the game treat the mod as a language pack) -->
+    <Copy SourceFiles="@(ModTranslation)" DestinationFolder="$(ModDir)\translations" Retries="2" RetryDelayMilliseconds="1000" />
+    <Message Importance="high" Text="Mod installed to $(ModDir)" />
+  </Target>
+
+</Project>

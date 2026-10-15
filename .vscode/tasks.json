@@ -1,0 +1,15 @@
+{
+  // Ctrl+Shift+B in VS Code: build the mod and install it into the game's mods folder
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build and install mod",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "-c", "Release", "-nologo", "-v:minimal"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$msCompile",
+      "presentation": { "reveal": "always", "clear": true }
+    }
+  ]
+}

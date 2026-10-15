@@ -1,0 +1,191 @@
+msgid ""
+msgstr ""
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. ResourceSensor.STRINGS.SENSOR.NAME
+msgctxt "ResourceSensor.STRINGS.SENSOR.NAME"
+msgid "Resource Sensor"
+msgstr "Сенсор ресурсов"
+
+#. ResourceSensor.STRINGS.SENSOR.DESC
+msgctxt "ResourceSensor.STRINGS.SENSOR.DESC"
+msgid "Keeps track of how much of the selected resource there is on the asteroid, nearby, or in the room."
+msgstr "Следит за тем, сколько выбранного ресурса есть на астероиде, рядом или в комнате."
+
+#. ResourceSensor.STRINGS.SENSOR.EFFECT
+msgctxt "ResourceSensor.STRINGS.SENSOR.EFFECT"
+msgid "Counts the selected resource across the whole asteroid, within range of the sensor, or in its room, and sends a {0} or a {1} depending on the threshold."
+msgstr "Считает выбранный ресурс на всём астероиде, в радиусе от сенсора или в его комнате и подаёт {0} или {1} в зависимости от порога."
+
+#. ResourceSensor.STRINGS.SENSOR.GREEN_SIGNAL
+msgctxt "ResourceSensor.STRINGS.SENSOR.GREEN_SIGNAL"
+msgid "Green Signal"
+msgstr "зелёный сигнал"
+
+#. ResourceSensor.STRINGS.SENSOR.RED_SIGNAL
+msgctxt "ResourceSensor.STRINGS.SENSOR.RED_SIGNAL"
+msgid "Red Signal"
+msgstr "красный сигнал"
+
+#. ResourceSensor.STRINGS.SENSOR.LOGIC_PORT
+msgctxt "ResourceSensor.STRINGS.SENSOR.LOGIC_PORT"
+msgid "Resource Sensor Output"
+msgstr "Выход сенсора ресурсов"
+
+#. ResourceSensor.STRINGS.SENSOR.LOGIC_PORT_ACTIVE
+msgctxt "ResourceSensor.STRINGS.SENSOR.LOGIC_PORT_ACTIVE"
+msgid "Sends a {0} when the threshold condition is met"
+msgstr "Подаёт {0}, когда условие порога выполнено"
+
+#. ResourceSensor.STRINGS.SENSOR.LOGIC_PORT_INACTIVE
+msgctxt "ResourceSensor.STRINGS.SENSOR.LOGIC_PORT_INACTIVE"
+msgid "Otherwise sends a {0}"
+msgstr "Иначе подаёт {0}"
+
+#. ResourceSensor.STRINGS.THRESHOLD.TITLE
+msgctxt "ResourceSensor.STRINGS.THRESHOLD.TITLE"
+msgid "Stock Threshold"
+msgstr "Порог запасов"
+
+#. ResourceSensor.STRINGS.THRESHOLD.AMOUNT
+msgctxt "ResourceSensor.STRINGS.THRESHOLD.AMOUNT"
+msgid "Amount"
+msgstr "Количество"
+
+#. ResourceSensor.STRINGS.THRESHOLD.TOOLTIP_ABOVE
+msgctxt "ResourceSensor.STRINGS.THRESHOLD.TOOLTIP_ABOVE"
+msgid "Send a {signal} if there is more than <b>{0}</b> of the resource"
+msgstr "Подавать {signal}, если ресурса больше <b>{0}</b>"
+
+#. ResourceSensor.STRINGS.THRESHOLD.TOOLTIP_BELOW
+msgctxt "ResourceSensor.STRINGS.THRESHOLD.TOOLTIP_BELOW"
+msgid "Send a {signal} if there is less than <b>{0}</b> of the resource"
+msgstr "Подавать {signal}, если ресурса меньше <b>{0}</b>"
+
+#. ResourceSensor.STRINGS.UNITS.KG
+msgctxt "ResourceSensor.STRINGS.UNITS.KG"
+msgid " kg"
+msgstr " кг"
+
+#. ResourceSensor.STRINGS.UNITS.TONNES
+msgctxt "ResourceSensor.STRINGS.UNITS.TONNES"
+msgid " t"
+msgstr " т"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.RESOURCE_LIST_TITLE
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.RESOURCE_LIST_TITLE"
+msgid "Resource to Count"
+msgstr "Ресурс для подсчёта"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.BUTTONS_TITLE
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.BUTTONS_TITLE"
+msgid "Sensor Settings"
+msgstr "Настройки сенсора"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.MODE_WORLD
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.MODE_WORLD"
+msgid "On Map"
+msgstr "На карте"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.MODE_WORLD_TOOLTIP
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.MODE_WORLD_TOOLTIP"
+msgid "Count across the whole asteroid — the same number as in the resources panel on the right."
+msgstr "Считать на всём астероиде — то же число, что в панели ресурсов справа."
+
+#. ResourceSensor.STRINGS.SIDESCREEN.MODE_RANGE
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.MODE_RANGE"
+msgid "Range"
+msgstr "Радиус"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.MODE_RANGE_TOOLTIP
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.MODE_RANGE_TOOLTIP"
+msgid "Count in a square around the sensor. The range is set with the slider below."
+msgstr "Считать в квадрате вокруг сенсора. Радиус задаётся ползунком ниже."
+
+#. ResourceSensor.STRINGS.SIDESCREEN.MODE_ROOM
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.MODE_ROOM"
+msgid "Room"
+msgstr "Комната"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.MODE_ROOM_TOOLTIP
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.MODE_ROOM_TOOLTIP"
+msgid "Count in the same enclosed area (up to 256 tiles) where the sensor stands."
+msgstr "Считать в той же замкнутой области (не больше 256 клеток), где стоит сенсор."
+
+#. ResourceSensor.STRINGS.SIDESCREEN.KIND_TITLE
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.KIND_TITLE"
+msgid "What to Count"
+msgstr "Что считать"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.STATE_SOLID
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.STATE_SOLID"
+msgid "Materials"
+msgstr "Материалы"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.STATE_LIQUID
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.STATE_LIQUID"
+msgid "Liquids"
+msgstr "Жидкости"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.STATE_GAS
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.STATE_GAS"
+msgid "Gases"
+msgstr "Газы"
+
+#. ResourceSensor.STRINGS.SIDESCREEN.STATE_TOOLTIP
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.STATE_TOOLTIP"
+msgid "Which resources to show in the selection list. The selected resource stays until you pick another one."
+msgstr "Какие ресурсы показывать в списке выбора. Выбранный ресурс остаётся, пока не выберешь другой."
+
+#. ResourceSensor.STRINGS.SIDESCREEN.RANGE_LABEL
+msgctxt "ResourceSensor.STRINGS.SIDESCREEN.RANGE_LABEL"
+msgid "Range in tiles:"
+msgstr "Радиус в клетках:"
+
+#. ResourceSensor.STRINGS.STATUS.NO_RESOURCE
+msgctxt "ResourceSensor.STRINGS.STATUS.NO_RESOURCE"
+msgid "No resource selected"
+msgstr "Ресурс не выбран"
+
+#. ResourceSensor.STRINGS.STATUS.AMOUNT
+msgctxt "ResourceSensor.STRINGS.STATUS.AMOUNT"
+msgid "{0}: {1}"
+msgstr "{0}: {1}"
+
+#. ResourceSensor.STRINGS.STATUS.NO_DATA
+msgctxt "ResourceSensor.STRINGS.STATUS.NO_DATA"
+msgid "{0}: no data"
+msgstr "{0}: нет данных"
+
+#. ResourceSensor.STRINGS.STATUS.AMOUNT_TOOLTIP
+msgctxt "ResourceSensor.STRINGS.STATUS.AMOUNT_TOOLTIP"
+msgid "Pick the resource to count in the list on the left"
+msgstr "Выбери ресурс для подсчёта в списке слева"
+
+#. ResourceSensor.STRINGS.STATUS.MODE_WORLD
+msgctxt "ResourceSensor.STRINGS.STATUS.MODE_WORLD"
+msgid "Mode: on map"
+msgstr "Режим: на карте"
+
+#. ResourceSensor.STRINGS.STATUS.MODE_RANGE
+msgctxt "ResourceSensor.STRINGS.STATUS.MODE_RANGE"
+msgid "Mode: range, tiles {0}"
+msgstr "Режим: радиус, клеток {0}"
+
+#. ResourceSensor.STRINGS.STATUS.MODE_ROOM
+msgctxt "ResourceSensor.STRINGS.STATUS.MODE_ROOM"
+msgid "Mode: room, tiles {0}"
+msgstr "Режим: комната, клеток {0}"
+
+#. ResourceSensor.STRINGS.STATUS.MODE_ROOM_TOO_BIG
+msgctxt "ResourceSensor.STRINGS.STATUS.MODE_ROOM_TOO_BIG"
+msgid "Mode: room, tiles >256 (no data)"
+msgstr "Режим: комната, клеток >256 (нет данных)"
+
+#. ResourceSensor.STRINGS.STATUS.MODE_TOOLTIP
+msgctxt "ResourceSensor.STRINGS.STATUS.MODE_TOOLTIP"
+msgid "Where the sensor counts the resource: across the whole asteroid, within range, or in a room"
+msgstr "Где сенсор считает ресурс: на всём астероиде, в радиусе или в комнате"
